@@ -8,9 +8,9 @@
 function nwb_dash_content_init() {
 	if( current_user_can('manage_options') ) {
 		wp_add_dashboard_widget(
-		'nwb_dash_content',				// Widget slug
-		'Information from Jill',		// Widget title
-		'nwb_dash_content',				// Callback to function that has the content
+		'nwb_dash_content',	// Widget slug
+		'Information from Jill',	// Widget title
+		'nwb_dash_content',	// Callback to function that has the content
 		);  
 	}
 }
