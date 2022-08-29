@@ -1,0 +1,33 @@
+<?php
+/**
+ * Initilaize adding dashboard widget
+ * @author Jeff Cohan <jeff@nsiteful.com>
+ * CHANGELOG: 
+ * - 2022-08-29 12:26:04, Mon
+ */
+function nwb_dash_content_init() {
+	if( current_user_can('manage_options') ) {
+		wp_add_dashboard_widget(
+		'nwb_dash_content',				// Widget slug
+		'Information from Jill',		// Widget title
+		'nwb_dash_content',				// Callback to function that has the content
+		);  
+	}
+}
+/**
+ * Content to display in the 'nwb_dash_content' dashboard widget
+ * @author Jeff Cohan <jeff@nsiteful.com>
+ * CHANGELOG: 
+ * - 2022-08-29 12:30:06, Mon
+ */
+function nwb_dash_content() {
+	$oputput = '';
+	$output .= '<h2>Links</h2>';
+	$output .= '<p><a href="#" target="_blank">View the Special Form</a></p>';
+	$output .= '<p><a href="#" target="_blank">View this front-end page</a></p>';
+	$output .= '<p><a href="#" target="_blank">View this other front-end page</a></p>';
+	$output .= '<h2>Important Reminder:</h2>';
+	$output .= '<p>Do not forget to do that think we talked about yesterday (yada yada).</p>';
+	echo $output;
+}
+add_action('wp_dashboard_setup', 'nwb_dash_content_init');
